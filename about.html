@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="blue" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Neon 3D Music Visualizer</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div id="loader"><div class="loader-ring"></div><div class="loader-pct mono" id="loader-pct">Loading 0%</div></div>
+<canvas id="bg-particles"></canvas>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span><span>NEON<br>VISUALIZER</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="player.html">Player</a>
+      <a href="visualizer.html">Visualizer</a>
+      <a href="tracks.html">Tracks</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="mode-toggle" title="Toggle light/dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="player.html" class="btn btn-primary btn-sm">Start Listening</a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="menu-scrim" id="menu-scrim"></div>
+<nav class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="player.html">Player</a>
+  <a href="visualizer.html">Visualizer</a>
+  <a href="tracks.html">Tracks</a>
+  <a href="about.html">About</a>
+</nav>
+
+<div class="wrap page-head reveal">
+  <span class="eyebrow">About the project</span>
+  <h1>A visualizer built to feel premium</h1>
+  <p>Neon 3D Music Visualizer is a portfolio-grade demonstration of real-time audio analysis paired with WebGL rendering — no frameworks, just the browser platform.</p>
+</div>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="card-grid" style="grid-template-columns:1.3fr 1fr;gap:24px;">
+      <div class="glass-card reveal">
+        <h3 style="font-size:1.2rem;margin-bottom:14px;">Project overview</h3>
+        <p>The app pairs the Web Audio API's AnalyserNode with a Three.js scene so that bass, mids, and highs each drive a distinct visual behavior — scale, rotation, and particle speed — while GSAP handles the surrounding interface motion.</p>
+      </div>
+      <div class="glass-card reveal">
+        <h3 style="font-size:1.2rem;margin-bottom:14px;">Technologies</h3>
+        <p>HTML5 · CSS3 · Vanilla JavaScript (ES6) · Three.js · GSAP · Web Audio API. No build step, no frameworks — everything runs directly in the browser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Feature set</span>
+      <h2>What's inside</h2>
+    </div>
+    <div class="card-grid">
+      <div class="glass-card reveal"><h3>Full Player</h3><p>Play, pause, seek, shuffle, repeat, keyboard shortcuts, and a live equalizer.</p></div>
+      <div class="glass-card reveal"><h3>3D Scene Modes</h3><p>Sphere core, frequency bars, neon tunnel, particle galaxy, and a random mode.</p></div>
+      <div class="glass-card reveal"><h3>Microphone Mode</h3><p>Feed live mic input straight into the analyser for real-time reactive visuals.</p></div>
+      <div class="glass-card reveal"><h3>Clip Recording</h3><p>Capture a short clip of the visualizer canvas and download it instantly.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="card-grid" style="grid-template-columns:1fr 1.4fr;gap:24px;align-items:start;">
+      <div class="glass-card reveal">
+        <h3 style="font-size:1.2rem;margin-bottom:14px;">Developer</h3>
+        <p style="margin-bottom:18px;">Designed and built as an advanced front-end internship submission — focused on interaction detail, motion, and real-time graphics.</p>
+        <div class="social-row">
+          <a href="#" class="icon-btn" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 00-3.79 23.39c.6.11.82-.26.82-.58v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.85 1.24 1.85 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0012 .5z"/></svg></a>
+          <a href="#" class="icon-btn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21H9z"/></svg></a>
+        </div>
+      </div>
+      <div class="glass-card reveal" id="contact">
+        <h3 style="font-size:1.2rem;margin-bottom:18px;">Get in touch</h3>
+        <form id="contact-form" style="display:flex;flex-direction:column;gap:14px;">
+          <input required type="text" placeholder="Your name" style="background:var(--navy-1);border:1px solid var(--glass-brd);border-radius:10px;padding:12px 16px;color:var(--text-hi);">
+          <input required type="email" placeholder="Your email" style="background:var(--navy-1);border:1px solid var(--glass-brd);border-radius:10px;padding:12px 16px;color:var(--text-hi);">
+          <textarea required placeholder="Message" rows="4" style="background:var(--navy-1);border:1px solid var(--glass-brd);border-radius:10px;padding:12px 16px;color:var(--text-hi);resize:vertical;"></textarea>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="card-grid" style="grid-template-columns:1fr 1fr;">
+      <div class="glass-card reveal"><h3>Does it work without uploading a song?</h3><p>Yes — a generated demo tone plays automatically so the visualizer has something to react to right away.</p></div>
+      <div class="glass-card reveal"><h3>Is my audio uploaded anywhere?</h3><p>No. Files are decoded locally in your browser using the Web Audio API and never leave your device.</p></div>
+      <div class="glass-card reveal"><h3>Can I use my microphone instead?</h3><p>Yes — Mic Mode on the Visualizer page asks for permission and routes live input into the same analyser.</p></div>
+      <div class="glass-card reveal"><h3>What browsers are supported?</h3><p>Any modern browser with WebGL and Web Audio support — recent Chrome, Firefox, Edge, and Safari.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-bottom">
+    <span>© 2026 Neon 3D Music Visualizer.</span>
+    <a href="index.html">Back to Home →</a>
+  </div>
+</footer>
+
+<div id="toast-stack"></div>
+<button id="back-to-top" title="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/app.js"></script>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  showToast('Message sent — thanks for reaching out!');
+  this.reset();
+});
+</script>
+</body>
+</html>

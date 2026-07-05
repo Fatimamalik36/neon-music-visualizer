@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="blue" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visualizer — Neon 3D Music Visualizer</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/visualizer.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="viz-page">
+
+<div id="loader"><div class="loader-ring"></div><div class="loader-pct mono" id="loader-pct">Loading 0%</div></div>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span><span>NEON<br>VISUALIZER</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="player.html">Player</a>
+      <a href="visualizer.html" class="active">Visualizer</a>
+      <a href="tracks.html">Tracks</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="mode-toggle" title="Toggle light/dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="player.html" class="btn btn-primary btn-sm">Open Player</a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="menu-scrim" id="menu-scrim"></div>
+<nav class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="player.html">Player</a>
+  <a href="visualizer.html">Visualizer</a>
+  <a href="tracks.html">Tracks</a>
+  <a href="about.html">About</a>
+</nav>
+
+<section class="viz-stage" id="viz-stage">
+  <div id="viz-canvas-holder"></div>
+  <div id="viz-flash"></div>
+
+  <div class="no-audio-msg" id="no-audio-msg">
+    <h3>No audio source yet</h3>
+    <p>Play a track from the Player, drop a file below, or enable your microphone to bring this scene to life.</p>
+  </div>
+
+  <div class="viz-hud">
+    <div class="hud-top">
+      <div class="hud-stats">
+        <span class="hud-badge" id="badge-source"><span class="dot"></span><span id="badge-source-text">No source</span></span>
+        <span class="hud-badge mono" id="badge-fps"><span id="fps-value">60</span> FPS</span>
+        <span class="hud-badge mono" id="badge-beat">Beat: <span id="beat-value">—</span></span>
+      </div>
+      <div class="theme-row compact" id="theme-row-viz">
+        <div class="theme-dot" data-t="blue" title="Blue Neon"></div>
+        <div class="theme-dot" data-t="purple" title="Purple Neon"></div>
+        <div class="theme-dot" data-t="pink" title="Pink Neon"></div>
+        <div class="theme-dot" data-t="green" title="Green Neon"></div>
+        <div class="theme-dot" data-t="orange" title="Orange Neon"></div>
+      </div>
+    </div>
+
+    <div class="mode-rail" id="mode-rail">
+      <button class="mode-chip active" data-mode="sphere">Sphere Core</button>
+      <button class="mode-chip" data-mode="bars">Frequency Bars</button>
+      <button class="mode-chip" data-mode="tunnel">Neon Tunnel</button>
+      <button class="mode-chip" data-mode="galaxy">Particle Galaxy</button>
+      <button class="mode-chip" data-mode="random">Random Mode</button>
+    </div>
+
+    <div class="hud-bottom">
+      <div class="viz-source-panel">
+        <div class="mini-eq paused" id="viz-mini-eq"><span></span><span></span><span></span><span></span><span></span></div>
+        <div>
+          <div id="viz-track-title" style="font-weight:600;font-size:.92rem;">Nothing playing</div>
+          <div id="viz-track-artist" style="color:var(--text-mid);font-size:.78rem;">Pick a demo track, drop a file, or use your mic</div>
+        </div>
+        <select id="viz-demo-select" style="background:var(--navy-1);border:1px solid var(--glass-brd);border-radius:100px;padding:9px 14px;font-size:.8rem;color:var(--text-hi);cursor:pointer;">
+          <option value="">Demo track…</option>
+        </select>
+        <input type="file" id="viz-file-input" accept="audio/*" hidden>
+        <button class="btn btn-ghost btn-sm" id="viz-upload-btn">Load File</button>
+        <button class="btn btn-ghost btn-sm" id="viz-mic-btn">🎤 Mic Mode</button>
+      </div>
+      <div class="viz-controls">
+        <button class="icon-btn" id="btn-fullscreen" title="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3M16 3h3a2 2 0 012 2v3M8 21H5a2 2 0 01-2-2v-3M16 21h3a2 2 0 002-2v-3"/></svg></button>
+        <button class="icon-btn" id="btn-record" title="Record clip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg></button>
+        <button class="icon-btn" id="btn-screenshot" title="Screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></button>
+        <button class="icon-btn" id="btn-fps-toggle" title="Toggle FPS counter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 15l4-6 4 3 5-8"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="max-width:900px;margin:0 auto;text-align:center;">
+  <div class="wrap reveal">
+    <span class="eyebrow" style="justify-content:center;">How the scene reacts</span>
+    <h2 style="margin-top:16px;">Frequency, mapped to form</h2>
+    <div class="card-grid" style="grid-template-columns:repeat(3,1fr);margin-top:40px;">
+      <div class="glass-card"><h3>Low / Bass</h3><p>Drives the core sphere's scale and glow — heavier bass, bigger pulse, a subtle camera shake.</p></div>
+      <div class="glass-card"><h3>Mid Frequency</h3><p>Rotates the frequency bars and rings around the scene in sync with melody and rhythm.</p></div>
+      <div class="glass-card"><h3>High Frequency</h3><p>Accelerates the particle field, adding shimmer on hi-hats, cymbals, and vocal air.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-bottom">
+    <span>© 2026 Neon 3D Music Visualizer.</span>
+    <a href="tracks.html">Browse Tracks →</a>
+  </div>
+</footer>
+
+<div id="toast-stack"></div>
+<button id="back-to-top" title="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/app.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/visualizer.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="blue" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracks — Neon 3D Music Visualizer</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/player.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div id="loader"><div class="loader-ring"></div><div class="loader-pct mono" id="loader-pct">Loading 0%</div></div>
+<canvas id="bg-particles"></canvas>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span><span>NEON<br>VISUALIZER</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="player.html">Player</a>
+      <a href="visualizer.html">Visualizer</a>
+      <a href="tracks.html" class="active">Tracks</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="mode-toggle" title="Toggle light/dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="player.html" class="btn btn-primary btn-sm">Open Player</a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="menu-scrim" id="menu-scrim"></div>
+<nav class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="player.html">Player</a>
+  <a href="visualizer.html">Visualizer</a>
+  <a href="tracks.html">Tracks</a>
+  <a href="about.html">About</a>
+</nav>
+
+<div class="wrap page-head reveal">
+  <span class="eyebrow">Library</span>
+  <h1>Every track in one place</h1>
+  <p>Search, filter by genre, and tap any card to send it straight to the player.</p>
+</div>
+
+<div class="wrap">
+  <div class="tracks-toolbar reveal">
+    <div class="search-box" style="max-width:340px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="song-search" placeholder="Search songs or artists…">
+    </div>
+    <select id="genre-filter">
+      <option value="all">All genres</option>
+      <option value="Synthwave">Synthwave</option>
+      <option value="Lo-fi">Lo-fi</option>
+      <option value="EDM">EDM</option>
+      <option value="Ambient">Ambient</option>
+      <option value="Cyberpunk">Cyberpunk</option>
+    </select>
+  </div>
+  <div class="track-grid reveal" id="track-grid"></div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap footer-bottom">
+    <span>© 2026 Neon 3D Music Visualizer.</span>
+    <a href="player.html">Go to Player →</a>
+  </div>
+</footer>
+
+<div id="toast-stack"></div>
+<button id="back-to-top" title="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/app.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/tracks.js"></script>
+</body>
+</html>
