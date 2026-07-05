@@ -30,35 +30,6 @@ A modern interactive **3D music visualizer web application** built using HTML, C
 
 ---
 
-##  Project Structure
-
-```text
-Neon-Music-Visualizer/
-│
-├── index.html
-│
-└── assets/
-    ├── css/
-    │    style.css
-    │    animation.css
-    │    responsive.css
-    │
-    ├── js/
-    │    audio.js
-    │    player.js
-    │    visualizer.js
-    │    particle.js
-    │    theme.js
-    │    main.js
-    │
-    ├── music/
-    ├── images/
-    ├── icons/
-    └── textures/
-```
-
----
-
 ## 🎮 How It Works
 
 1. Upload or select a music file
